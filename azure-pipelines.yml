@@ -1,0 +1,38 @@
+trigger:
+- main
+- develop
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Instalar Node.js'
+
+# Backend
+- script: |
+    cd backend
+    npm install
+  displayName: 'Instalar dependencias Backend'
+
+- script: |
+    cd backend
+    npm test
+  displayName: 'Ejecutar pruebas Backend'
+
+# Frontend
+- script: |
+    cd frontend
+    npm install
+  displayName: 'Instalar dependencias Frontend'
+
+- script: |
+    cd frontend
+    npm run build
+  displayName: 'Compilar Frontend'
+
+- script: echo Pipeline ejecutado correctamente
+  displayName: 'Finalizar'
