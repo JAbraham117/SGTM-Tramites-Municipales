@@ -130,3 +130,5 @@ exports.reporteTramites = async (req, res) => {
     res.status(500).json({ mensaje: "Error al generar reporte", error });
   }
 };
+
+//tramites
