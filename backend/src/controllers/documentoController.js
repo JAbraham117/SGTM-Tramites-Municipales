@@ -58,3 +58,5 @@ exports.listarDocumentosPorTramite = async (req, res) => {
     res.status(500).json({ mensaje: "Error al listar documentos", error });
   }
 };
+
+//Control para carga de documentos
